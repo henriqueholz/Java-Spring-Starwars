@@ -1,13 +1,13 @@
 package org.example.api.repository;
 
-import org.example.api.entities.Country;
+import org.example.api.entities.Starship;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 @RepositoryRestResource
-public interface CountryCrudRepository extends CrudRepository<Country, Long> {
+public interface StarshipRepository extends CrudRepository<Starship, Long> {
 
-    Country findByName(@Param("name") String name);
+    Starship findByName(@Param("name") String name);
 
 }

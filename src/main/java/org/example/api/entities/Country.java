@@ -1,4 +1,4 @@
-package org.example.api.data;
+package org.example.api.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
