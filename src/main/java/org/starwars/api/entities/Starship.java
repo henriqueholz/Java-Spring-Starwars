@@ -1,4 +1,4 @@
-package org.example.api.entities;
+package org.starwars.api.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
