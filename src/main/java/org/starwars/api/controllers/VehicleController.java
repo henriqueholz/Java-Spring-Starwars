@@ -54,7 +54,7 @@ public class VehicleController {
             UnitCountResponse unitCountResponse = new UnitCountResponse(vehicle.get().getId(), vehicle.get().getName(), vehicle.get().getCount());
             return new ResponseEntity<>(unitCountResponse, HttpStatus.OK);
         } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
 }

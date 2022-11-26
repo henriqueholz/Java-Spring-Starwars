@@ -55,7 +55,7 @@ public class StarshipController {
             UnitCountResponse unitCountResponse = new UnitCountResponse(starship.get().getId(), starship.get().getName(), starship.get().getCount());
             return new ResponseEntity<>(unitCountResponse, HttpStatus.OK);
         } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
 }
