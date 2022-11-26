@@ -1,9 +1,12 @@
 package org.starwars.api.entities;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
 public class Starship {
+    @Id
+    private int id;
 
     private String name;
 
@@ -46,7 +49,8 @@ public class Starship {
     public Starship() {
     }
 
-    public Starship(String name, String model, String starship_class, String manufacturer, String cost_in_credits, String length, String crew, String passengers, String max_atmosphering_speed, String hyperdrive_rating, String MGLT, String cargo_capacity, String consumables, String[] films, String[] pilots, String url, String created, String edited) {
+    public Starship(int id, String name, String model, String starship_class, String manufacturer, String cost_in_credits, String length, String crew, String passengers, String max_atmosphering_speed, String hyperdrive_rating, String MGLT, String cargo_capacity, String consumables, String[] films, String[] pilots, String url, String created, String edited) {
+        this.id = id;
         this.name = name;
         this.model = model;
         this.starship_class = starship_class;
@@ -65,6 +69,9 @@ public class Starship {
         this.url = url;
         this.created = created;
         this.edited = edited;
+    }
+    public int getId() {
+        return id;
     }
 
     public String getName() {
@@ -139,6 +146,14 @@ public class Starship {
         return edited;
     }
 
+    public int getCount() {
+        return count;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -209,5 +224,9 @@ public class Starship {
 
     public void setEdited(String edited) {
         this.edited = edited;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
     }
 }
