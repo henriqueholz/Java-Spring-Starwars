@@ -1,10 +1,13 @@
-package org.starwars.api.entities.Vehicle;
+package org.starwars.api.entities;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 
 @Document
 public class Vehicle {
+        @Id
+        private int id;
 
         private String cargo_capacity;
 
@@ -38,10 +41,13 @@ public class Vehicle {
 
         private String vehicle_class;
 
+        private int count;
+
         public Vehicle() {
         }
 
-        public Vehicle(String cargo_capacity, String model, String name, String consumables, String cost_in_credits, String created, String crew, String edited, String length, String manufacturer, String max_atmosphering_speed, String passengers, String[] pilots, String[] films, String url, String vehicle_class) {
+        public Vehicle(int id, String cargo_capacity, String model, String name, String consumables, String cost_in_credits, String created, String crew, String edited, String length, String manufacturer, String max_atmosphering_speed, String passengers, String[] pilots, String[] films, String url, String vehicle_class, int count) {
+                this.id = id;
                 this.cargo_capacity = cargo_capacity;
                 this.model = model;
                 this.name = name;
@@ -58,6 +64,11 @@ public class Vehicle {
                 this.films = films;
                 this.url = url;
                 this.vehicle_class = vehicle_class;
+                this.count = count;
+        }
+
+        public int getId() {
+                return id;
         }
 
         public String getCargo_capacity() {
@@ -124,6 +135,14 @@ public class Vehicle {
                 return vehicle_class;
         }
 
+        public int getCount() {
+                return count;
+        }
+
+        public void setId(int id) {
+                this.id = id;
+        }
+
         public void setCargo_capacity(String cargo_capacity) {
                 this.cargo_capacity = cargo_capacity;
         }
@@ -186,5 +205,9 @@ public class Vehicle {
 
         public void setVehicle_class(String vehicle_class) {
                 this.vehicle_class = vehicle_class;
+        }
+
+        public void setCount(int count) {
+                this.count = count;
         }
 }

@@ -1,13 +1,13 @@
-package org.starwars.api.entities.Starship;
+package org.starwars.api.entities;
 
-public class StarshipUnitCountResponse {
+public class UnitCountResponse {
     private int id;
 
     private String name;
 
     private int unitCount;
 
-    public StarshipUnitCountResponse(int id, String name, int unitCount) {
+    public UnitCountResponse(int id, String name, int unitCount) {
         this.id = id;
         this.name = name;
         this.unitCount = unitCount;
@@ -32,7 +32,6 @@ public class StarshipUnitCountResponse {
     public void setName(String name) {
         this.name = name;
     }
-
 
     public void setUnitCount(int unitCount) {
         this.unitCount = unitCount;
