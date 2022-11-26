@@ -34,8 +34,4 @@ public class GetAllVehicleData {
         }
         return vehicleList;
     }
-
-    public Vehicle add(Vehicle vehicle) {
-        return vehicleRepository.save(vehicle);
-    }
 }

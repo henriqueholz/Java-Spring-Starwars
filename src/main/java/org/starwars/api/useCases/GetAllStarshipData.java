@@ -34,8 +34,4 @@ public class GetAllStarshipData {
         }
         return starshipList;
     }
-
-    public Starship add(Starship starship) {
-        return starshipRepository.save(starship);
-    }
 }
