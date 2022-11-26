@@ -7,10 +7,10 @@ import org.starwars.api.repository.VehicleRepository;
 
 @Service
 @Transactional
-public class DecrementUnitByName3 {
+public class DecrementUnitByName {
     private final VehicleRepository vehicleRepository;
 
-    public DecrementUnitByName3(VehicleRepository vehicleRepository) {
+    public DecrementUnitByName(VehicleRepository vehicleRepository) {
         this.vehicleRepository = vehicleRepository;
     }
 

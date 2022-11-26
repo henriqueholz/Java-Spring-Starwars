@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.starwars.api.entities.UnitCountResponse;
 import org.starwars.api.entities.Vehicle;
-import org.starwars.api.useCases.Vehicle.DecrementUnitByName3;
+import org.starwars.api.useCases.Vehicle.DecrementUnitByName;
 import org.starwars.api.useCases.Vehicle.GetUnitByName;
 import org.starwars.api.useCases.Vehicle.IncrementUnitByName;
 import org.starwars.api.useCases.Vehicle.SetUnitByName;
@@ -20,9 +20,9 @@ public class VehicleController {
     private final GetUnitByName getUnitByName;
     private final SetUnitByName setUnitByName;
     private final IncrementUnitByName incrementUnitByName;
-    private final DecrementUnitByName3 decrementUnitByName;
+    private final DecrementUnitByName decrementUnitByName;
 
-    public VehicleController(GetUnitByName getUnitByName, SetUnitByName setUnitByName, IncrementUnitByName incrementUnitByName, DecrementUnitByName3 decrementUnitByName) {
+    public VehicleController(GetUnitByName getUnitByName, SetUnitByName setUnitByName, IncrementUnitByName incrementUnitByName, DecrementUnitByName decrementUnitByName) {
         this.getUnitByName = getUnitByName;
         this.setUnitByName = setUnitByName;
         this.incrementUnitByName = incrementUnitByName;
