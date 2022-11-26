@@ -19,7 +19,7 @@ public class GetAll {
         this.starshipRepository = starshipRepository;
     }
 
-    public List<Starship> getAll() {
+    public List<Starship> get() {
         List<Starship> starshipList = starshipRepository.findAll();
         if (starshipList.size() == 0) {
             String getAllStarshipUri = "https://swapi.dev/api/starships/";

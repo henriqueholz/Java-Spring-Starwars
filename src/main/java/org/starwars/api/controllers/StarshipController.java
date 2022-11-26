@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.starwars.api.entities.Starship;
 import org.starwars.api.useCases.Starship.DecrementUnitByName;
 import org.starwars.api.useCases.Starship.GetAll;
+import org.starwars.api.useCases.Starship.GetUnitByName;
 import org.starwars.api.useCases.Starship.IncrementUnitByName;
 import org.starwars.api.useCases.Starship.SetUnitByName;
 
@@ -15,12 +16,14 @@ import java.util.List;
 @RestController
 public class StarshipController {
     private final GetAll getAll;
+    private final GetUnitByName getUnitByName;
     private final SetUnitByName setUnitByName;
     private final IncrementUnitByName incrementUnitByName;
     private final DecrementUnitByName decrementUnitByName;
 
-    public StarshipController(GetAll getAll, SetUnitByName setUnitByName, IncrementUnitByName incrementUnitByName, DecrementUnitByName decrementUnitByName) {
+    public StarshipController(GetAll getAll, GetUnitByName getUnitByName, SetUnitByName setUnitByName, IncrementUnitByName incrementUnitByName, DecrementUnitByName decrementUnitByName) {
         this.getAll = getAll;
+        this.getUnitByName = getUnitByName;
         this.setUnitByName = setUnitByName;
         this.incrementUnitByName = incrementUnitByName;
         this.decrementUnitByName = decrementUnitByName;
@@ -28,7 +31,12 @@ public class StarshipController {
 
     @GetMapping(value = "/starship")
     public List<Starship> getAll() {
-        return getAll.getAll();
+        return getAll.get();
+    }
+
+    @GetMapping(value = "/starship/{name}")
+    public Starship getByName(@PathVariable String name) {
+        return getUnitByName.get(name);
     }
 
     @PutMapping(value = "/starship/{name}/set-unit/{unit}")
