@@ -1,13 +1,10 @@
 package org.starwars.api.entities;
 
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 
 @Document
 public class Vehicle {
-        @Id
-        private Long id;
 
         private String cargo_capacity;
 
