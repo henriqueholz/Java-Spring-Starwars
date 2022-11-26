@@ -3,7 +3,7 @@ package org.starwars.api.useCases.Starship;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import org.starwars.api.entities.Starship;
+import org.starwars.api.entities.Starship.Starship;
 import org.starwars.api.repository.StarshipRepository;
 
 @Service

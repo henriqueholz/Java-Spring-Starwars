@@ -5,10 +5,10 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
-import org.starwars.api.entities.GetAllStarshipDataResponse;
-import org.starwars.api.entities.GetAllVehicleDataResponse;
-import org.starwars.api.entities.Starship;
-import org.starwars.api.entities.Vehicle;
+import org.starwars.api.entities.Starship.GetAllStarshipDataResponse;
+import org.starwars.api.entities.Vehicle.GetAllVehicleDataResponse;
+import org.starwars.api.entities.Starship.Starship;
+import org.starwars.api.entities.Vehicle.Vehicle;
 import org.starwars.api.repository.StarshipRepository;
 import org.starwars.api.repository.VehicleRepository;
 

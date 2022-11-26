@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.starwars.api.entities.Starship;
+import org.starwars.api.entities.Starship.Starship;
 import org.starwars.api.useCases.Starship.DecrementUnitByName;
 import org.starwars.api.useCases.Starship.GetUnitByName;
 import org.starwars.api.useCases.Starship.IncrementUnitByName;

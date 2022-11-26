@@ -1,18 +1,20 @@
-package org.starwars.api.entities;
+package org.starwars.api.entities.Starship;
 
-public class GetAllVehicleDataResponse {
+import org.starwars.api.entities.Starship.Starship;
+
+public class GetAllStarshipDataResponse {
     private int count;
 
     private String next;
 
     private String previous;
 
-    private Vehicle[] results;
+    private Starship[] results;
 
-    public GetAllVehicleDataResponse() {
+    public GetAllStarshipDataResponse() {
     }
 
-    public GetAllVehicleDataResponse(int count, String next, String previous, Vehicle[] results) {
+    public GetAllStarshipDataResponse(int count, String next, String previous, Starship[] results) {
         this.count = count;
         this.next = next;
         this.previous = previous;
@@ -31,7 +33,7 @@ public class GetAllVehicleDataResponse {
         return previous;
     }
 
-    public Vehicle[] getResults() {
+    public Starship[] getResults() {
         return results;
     }
 
@@ -47,7 +49,7 @@ public class GetAllVehicleDataResponse {
         this.previous = previous;
     }
 
-    public void setResults(Vehicle[] results) {
+    public void setResults(Starship[] results) {
         this.results = results;
     }
 }

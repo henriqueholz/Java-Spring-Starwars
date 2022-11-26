@@ -1,4 +1,4 @@
-package org.starwars.api.entities;
+package org.starwars.api.entities.Starship;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

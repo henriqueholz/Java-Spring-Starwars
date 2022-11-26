@@ -2,7 +2,7 @@ package org.starwars.api.repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
-import org.starwars.api.entities.Starship;
+import org.starwars.api.entities.Starship.Starship;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 @RepositoryRestResource

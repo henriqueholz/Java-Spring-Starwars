@@ -1,4 +1,4 @@
-package org.starwars.api.entities;
+package org.starwars.api.entities.Vehicle;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
