@@ -1,7 +1,5 @@
 package org.starwars.api.entities;
 
-import javax.persistence.Entity;
-
 public class GetAllStarshipDataResponse {
     private int count;
 

@@ -1,13 +1,9 @@
 package org.starwars.api.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
+@Document
 public class Starship {
-
-    @Id
-    private Long id;
 
     private String name;
 

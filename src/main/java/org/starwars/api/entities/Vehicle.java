@@ -1,9 +1,10 @@
 package org.starwars.api.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
+
+@Document
 public class Vehicle {
         @Id
         private Long id;
@@ -39,6 +40,9 @@ public class Vehicle {
         private String url;
 
         private String vehicle_class;
+
+        public Vehicle() {
+        }
 
         public Vehicle(String cargo_capacity, String model, String name, String consumables, String cost_in_credits, String created, String crew, String edited, String length, String manufacturer, String max_atmosphering_speed, String passengers, String[] pilots, String[] films, String url, String vehicle_class) {
                 this.cargo_capacity = cargo_capacity;

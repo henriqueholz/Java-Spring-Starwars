@@ -35,4 +35,8 @@ public class GetAllStarshipData {
         } while (getAllStarshipUri != null);
         return starshipRepository.findAll();
     }
+
+    public Starship add(Starship starship) {
+        return starshipRepository.save(starship);
+    }
 }
