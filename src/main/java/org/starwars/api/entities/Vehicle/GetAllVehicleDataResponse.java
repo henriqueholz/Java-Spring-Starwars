@@ -1,7 +1,5 @@
 package org.starwars.api.entities.Vehicle;
 
-import org.starwars.api.entities.Vehicle.Vehicle;
-
 public class GetAllVehicleDataResponse {
     private int count;
 

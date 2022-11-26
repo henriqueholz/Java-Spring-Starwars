@@ -18,7 +18,7 @@ public class GetUnitByName {
     public Starship get(String name) {
         Starship starship = starshipRepository.findByName(name);
         if (starship == null) {
-            // error
+            return null;
         }
         return starship;
     }

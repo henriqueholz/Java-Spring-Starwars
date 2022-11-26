@@ -17,11 +17,11 @@ public class DecrementUnitByName {
     public Starship update(String name, int unit) {
         Starship starship = starshipRepository.findByName(name);
         if (starship == null) {
-            // not found
+            return null;
         }
         int currentUnit = starship.getCount();
         if (currentUnit < unit) {
-            // error
+            return null;
         }
         starship.setCount(currentUnit - unit);
         starshipRepository.save(starship);

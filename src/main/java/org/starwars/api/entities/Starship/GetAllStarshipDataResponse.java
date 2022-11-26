@@ -1,7 +1,5 @@
 package org.starwars.api.entities.Starship;
 
-import org.starwars.api.entities.Starship.Starship;
-
 public class GetAllStarshipDataResponse {
     private int count;
 

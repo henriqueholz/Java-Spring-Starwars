@@ -1,14 +1,19 @@
 package org.starwars.api.controllers;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.starwars.api.entities.Starship.Starship;
+import org.starwars.api.entities.Starship.StarshipUnitCountResponse;
 import org.starwars.api.useCases.Starship.DecrementUnitByName;
 import org.starwars.api.useCases.Starship.GetUnitByName;
 import org.starwars.api.useCases.Starship.IncrementUnitByName;
 import org.starwars.api.useCases.Starship.SetUnitByName;
+
+import java.util.Optional;
 
 @RestController
 public class StarshipController {
@@ -25,22 +30,31 @@ public class StarshipController {
     }
 
     @GetMapping(value = "/starship/{name}")
-    public Starship getByName(@PathVariable String name) {
-        return getUnitByName.get(name);
+    public ResponseEntity<StarshipUnitCountResponse> getByName(@PathVariable String name) {
+        return StarshipToResponseEntity(Optional.ofNullable(getUnitByName.get(name)));
     }
 
     @PutMapping(value = "/starship/{name}/set-unit/{unit}")
-    public Starship setUnitByName(@PathVariable String name, @PathVariable int unit) {
-        return setUnitByName.update(name, unit);
+    public ResponseEntity<StarshipUnitCountResponse> setUnitByName(@PathVariable String name, @PathVariable int unit) {
+        return StarshipToResponseEntity(Optional.ofNullable(setUnitByName.update(name, unit)));
     }
 
     @PutMapping(value = "/starship/{name}/increment-unit/{unit}")
-    public Starship incrementUnitByName(@PathVariable String name, @PathVariable int unit) {
-        return incrementUnitByName.update(name, unit);
+    public ResponseEntity<StarshipUnitCountResponse> incrementUnitByName(@PathVariable String name, @PathVariable int unit) {
+        return StarshipToResponseEntity(Optional.ofNullable(incrementUnitByName.update(name, unit)));
     }
 
     @PutMapping(value = "/starship/{name}/decrement-unit/{unit}")
-    public Starship decrementUnitByName(@PathVariable String name, @PathVariable int unit) {
-        return decrementUnitByName.update(name, unit);
+    public ResponseEntity<StarshipUnitCountResponse> decrementUnitByName(@PathVariable String name, @PathVariable int unit) {
+        return StarshipToResponseEntity(Optional.ofNullable(decrementUnitByName.update(name, unit)));
+    }
+
+    public ResponseEntity<StarshipUnitCountResponse> StarshipToResponseEntity(Optional<Starship> starship) {
+        if (starship.isPresent()) {
+            StarshipUnitCountResponse starshipUnitCountResponse = new StarshipUnitCountResponse(starship.get().getId(), starship.get().getName(), starship.get().getCount());
+            return new ResponseEntity<>(starshipUnitCountResponse, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 }

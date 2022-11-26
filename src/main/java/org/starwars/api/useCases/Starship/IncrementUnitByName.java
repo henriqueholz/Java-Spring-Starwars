@@ -17,7 +17,7 @@ public class IncrementUnitByName {
     public Starship update(String name, int unit) {
         Starship starship = starshipRepository.findByName(name);
         if (starship == null) {
-            // not found
+            return null;
         }
         starship.setCount(starship.getCount() + unit);
         starshipRepository.save(starship);
