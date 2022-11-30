@@ -1,5 +1,6 @@
-#Local MongoDB config
 spring:
   data:
     mongodb:
       database: starwars
+      port: 27017
+      host: mongo

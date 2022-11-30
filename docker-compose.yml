@@ -1,0 +1,18 @@
+version: "3"
+services:
+  mongo:
+    container_name: mongo-container
+    image: mongo:4.2
+    restart: always
+    ports:
+      - "27017:27017"
+  api:
+    container_name: api-container
+    image: maven
+    restart: always
+    working_dir: /usr/src/star-wars/
+    command: bash -c "mvn clean package spring-boot:repackage && java -jar ./target/api-crud-1.0-SNAPSHOT.jar"
+    volumes:
+      - ./:/usr/src/star-wars/
+    ports:
+      - "8080:8080"

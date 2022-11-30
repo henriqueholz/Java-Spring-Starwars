@@ -1,4 +1,4 @@
-package org.starwars.api.tests;
+package org.starwars.api.tests.controller;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

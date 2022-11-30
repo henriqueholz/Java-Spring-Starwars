@@ -31,22 +31,22 @@ public class VehicleController {
 
     @GetMapping(value = "/vehicle/{name}")
     public ResponseEntity<UnitCountResponse> getByName(@PathVariable String name) {
-        return ToResponseEntity(Optional.ofNullable(getUnitByName.get(name)));
+        return ToResponseEntity(Optional.ofNullable(getUnitByName.get(replaceUnderlineForSpace(name))));
     }
 
     @PutMapping(value = "/vehicle/{name}/set-unit/{unit}")
     public ResponseEntity<UnitCountResponse> setUnitByName(@PathVariable String name, @PathVariable int unit) {
-        return ToResponseEntity(Optional.ofNullable(setUnitByName.update(name, unit)));
+        return ToResponseEntity(Optional.ofNullable(setUnitByName.update(replaceUnderlineForSpace(name), unit)));
     }
 
     @PutMapping(value = "/vehicle/{name}/increment-unit/{unit}")
     public ResponseEntity<UnitCountResponse> incrementUnitByName(@PathVariable String name, @PathVariable int unit) {
-        return ToResponseEntity(Optional.ofNullable(incrementUnitByName.update(name, unit)));
+        return ToResponseEntity(Optional.ofNullable(incrementUnitByName.update(replaceUnderlineForSpace(name), unit)));
     }
 
     @PutMapping(value = "/vehicle/{name}/decrement-unit/{unit}")
     public ResponseEntity<UnitCountResponse> decrementUnitByName(@PathVariable String name, @PathVariable int unit) {
-        return ToResponseEntity(Optional.ofNullable(decrementUnitByName.update(name, unit)));
+        return ToResponseEntity(Optional.ofNullable(decrementUnitByName.update(replaceUnderlineForSpace(name), unit)));
     }
 
     public ResponseEntity<UnitCountResponse> ToResponseEntity(Optional<Vehicle> vehicle) {
@@ -56,5 +56,10 @@ public class VehicleController {
         } else {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
+    }
+
+
+    public String replaceUnderlineForSpace (String underscoreName) {
+        return underscoreName.replaceAll("_", " ");
     }
 }

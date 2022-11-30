@@ -1,9 +1,11 @@
-package org.starwars.api.tests;
+package org.starwars.api.tests.controller;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.data.mongo.AutoConfigureDataMongo;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
@@ -23,6 +25,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
         webEnvironment = SpringBootTest.WebEnvironment.MOCK,
         classes = CrudApplication.class
 )
+@AutoConfigureDataMongo
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @AutoConfigureMockMvc
 public class StarshipRestTest {
 
@@ -39,7 +43,7 @@ public class StarshipRestTest {
     }
 
     @Test
-    public void setUnitCount() throws Exception {
+    public void setUnitCountExpectSuccess() throws Exception {
         mvc.perform(put("/starship/{name}/set-unit/{unit}", "Star Destroyer", "3").contentType(MediaType.APPLICATION_JSON))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(status().is2xxSuccessful())
@@ -47,7 +51,7 @@ public class StarshipRestTest {
     }
 
     @Test
-    public void decrementUnitCount() throws Exception {
+    public void decrementUnitCountExpectSuccess() throws Exception {
         mvc.perform(put("/starship/{name}/decrement-unit/{unit}", "Star Destroyer", "3")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andDo(MockMvcResultHandlers.print())
@@ -56,7 +60,7 @@ public class StarshipRestTest {
     }
 
     @Test
-    public void decrementUnitCountUsingWrongName() throws Exception {
+    public void decrementUnitCountUsingWrongNameExpectBadRequest() throws Exception {
         mvc.perform(put("/starship/{name}/decrement-unit/{unit}", "Wrong Name", "3")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andDo(MockMvcResultHandlers.print())
@@ -64,7 +68,7 @@ public class StarshipRestTest {
     }
 
     @Test
-    public void decrementUnitCountToNegativeUnit() throws Exception {
+    public void decrementUnitCountToNegativeUnitExpectBadRequest() throws Exception {
         mvc.perform(put("/starship/{name}/decrement-unit/{unit}", "Star Destroyer", "6")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andDo(MockMvcResultHandlers.print())
@@ -72,7 +76,7 @@ public class StarshipRestTest {
     }
 
     @Test
-    public void incrementUnitCount() throws Exception {
+    public void incrementUnitCountExpectSuccess() throws Exception {
         mvc.perform(put("/starship/{name}/increment-unit/{unit}", "Star Destroyer", "3")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andDo(MockMvcResultHandlers.print())
@@ -81,7 +85,7 @@ public class StarshipRestTest {
     }
 
     @Test
-    public void incrementUnitCountUsingWrongName() throws Exception {
+    public void incrementUnitCountUsingWrongNameExpectBadRequest() throws Exception {
         mvc.perform(put("/starship/{name}/increment-unit/{unit}", "Wrong Name", "3")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andDo(MockMvcResultHandlers.print())
@@ -89,10 +93,11 @@ public class StarshipRestTest {
     }
 
     @Test
-    public void setUnitCountUsingWrongName() throws Exception {
+    public void setUnitCountUsingWrongNameExpectBadRequest() throws Exception {
         mvc.perform(put("/starship/{name}/set-unit/{unit}", "Wrong Name", "3")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(status().isBadRequest());
     }
+
 }

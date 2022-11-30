@@ -1,4 +1,4 @@
-package org.starwars.api.tests;
+package org.starwars.api.tests.entities;
 
 import com.openpojo.reflection.PojoClass;
 import com.openpojo.reflection.filters.FilterPackageInfo;
@@ -16,7 +16,7 @@ import java.util.List;
 public class PojoTest {
 
     public static final String POJO_PACKAGE = "org.starwars.api.entities";
-    private static final int EXPECTED_CLASS_COUNT = 4;
+    private static final int EXPECTED_CLASS_COUNT = 5;
 
     @Test
     public void ensureExpectedPojoCount() {
